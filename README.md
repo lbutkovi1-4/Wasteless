@@ -1,38 +1,33 @@
-# .
+# WasteLess
+Aplikacija za praćenje otpada hrane u profesionalnim kuhinjama i restoranima.
 
-This template should help get you started developing with Vue 3 in Vite.
+## Autor / Tim
+- **Tim:** 369/25
+- **Član tima:** Lidia Butković
 
-## Recommended IDE Setup
+## Informacije
+- [Fakultet informatike u Puli](https://fipu.unipu.hr)
+- Kolegij: [Programsko inženjerstvo](https://ntankovic.unipu.hr/pi)
+- Mentor: [doc. dr. sc. Nikola Tanković](https://ntankovic.unipu.hr)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Opis funkcionalnosti
+- Registracija i prijava korisnika
+- Unos otpada hrane (naziv, količina, razlog)
+- Pregled dnevnog otpada
+- Brisanje unosa
+- Pregled statistike
 
-## Recommended Browser Setup
+## Tehnologije
+- HTML, CSS, JavaScript
+- Vue.js
+- Tailwind CSS
+- Firebase (Authentication + Firestore)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Prototip
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+## Pokretanje projekta
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
