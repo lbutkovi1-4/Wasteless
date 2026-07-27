@@ -31,3 +31,10 @@ Aplikacija za praćenje otpada hrane u profesionalnim kuhinjama i restoranima.
 npm install
 npm run dev
 ```
+
+## Javna aplikacija
+[https://tourmaline-paprenjak-a13e15.netlify.app](https://tourmaline-paprenjak-a13e15.netlify.app)
+
+## Pristupni podaci za testiranje
+- **Email:** test@test.com
+- **Lozinka:** 123456
