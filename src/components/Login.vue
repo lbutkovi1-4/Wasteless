@@ -51,10 +51,12 @@
         </div>
 
         <p v-if="error" class="text-red-500 text-sm">{{ error }}</p>
+        <p v-if="loading" class="text-gray-500 text-sm text-center">Trenutak...</p>
 
         <button 
           @click="submitForm"
-          class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold text-sm hover:bg-gray-700 transition-colors">
+          :disabled="loading"
+          class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold text-sm hover:bg-gray-700 transition-colors disabled:opacity-50">
           {{ mode==='login' ? 'Prijavi se' : 'Stvori račun' }}
         </button>
       </div>
@@ -64,6 +66,9 @@
 </template>
 
 <script>
+import { auth } from '../firebase'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+
 export default {
   name: 'Login',
   data() {
@@ -72,26 +77,51 @@ export default {
       email: '',
       password: '',
       kitchenName: '',
-      error: ''
+      error: '',
+      loading: false
     }
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.error = ''
+      this.loading = true
+      
       if (!this.email || !this.password) {
         this.error = 'Molimo unesite email i lozinku.'
+        this.loading = false
         return
       }
       if (this.mode === 'register' && !this.kitchenName) {
         this.error = 'Molimo unesite naziv kuhinje.'
+        this.loading = false
         return
       }
-      this.$emit('login', {
-        email: this.email,
-        password: this.password,
-        kitchenName: this.kitchenName,
-        mode: this.mode
-      })
+
+      try {
+        let userCredential
+        if (this.mode === 'register') {
+          userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password)
+        } else {
+          userCredential = await signInWithEmailAndPassword(auth, this.email, this.password)
+        }
+        this.$emit('login', {
+          email: userCredential.user.email,
+          uid: userCredential.user.uid,
+          kitchenName: this.kitchenName
+        })
+      } catch(err) {
+        if (err.code === 'auth/email-already-in-use') {
+          this.error = 'Taj email je već registriran.'
+        } else if (err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+          this.error = 'Pogrešan email ili lozinka.'
+        } else if (err.code === 'auth/weak-password') {
+          this.error = 'Lozinka mora imati najmanje 6 znakova.'
+        } else {
+          this.error = 'Greška: ' + err.message
+        }
+      } finally {
+        this.loading = false
+      }
     }
   }
 }
