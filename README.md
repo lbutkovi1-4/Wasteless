@@ -39,5 +39,5 @@ npm run dev
 - **Email:** test@test.com
 - **Lozinka:** 123456
 
-## ## 👩‍💻 Zaduženja
+## Zaduženja
  Lidia Butković - Dizajn i izrada prototipa, implementacija Vue.js komponenti, Firebase Authentication, Firestore baza podataka, deploy na Netlify |
