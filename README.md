@@ -24,7 +24,7 @@ Aplikacija za praćenje otpada hrane u profesionalnim kuhinjama i restoranima.
 - Firebase (Authentication + Firestore)
 
 ## Prototip
-
+https://canva.link/7qfpap5h688u2jc
 
 ## Pokretanje projekta
 ```bash
