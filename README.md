@@ -39,5 +39,8 @@ npm run dev
 - **Email:** test@test.com
 - **Lozinka:** 123456
 
+## YouTube screencast
+[FIPU Wasteless](https://www.youtube.com/watch?v=26ziuOzzo5s)
+
 ## Zaduženja
  Lidia Butković - Dizajn i izrada prototipa, implementacija Vue.js komponenti, Firebase Authentication, Firestore baza podataka, deploy na Netlify |
